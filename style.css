@@ -22,7 +22,15 @@ main {
     position: relative;
 }
 
-.project-container,
+.project-container{
+    width: 22rem;
+    height: 28rem;
+    background: #fff;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    position: absolute;
+}
+
 .project-ghost-container {
     width: 22rem;
     height: 28rem;
@@ -56,6 +64,7 @@ main {
     margin-top: -4rem;
     border: 0.5rem solid #fff;
     z-index: 100;
+    width: 50%;
 }
 
 .project-body,

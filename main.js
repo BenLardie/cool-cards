@@ -44,18 +44,19 @@ const activeproject = () => {
   projectContainer.classList.add('project-active-animated');
     // Author avatar selection
     projectContainer.children[1].children[0].src =
-        projects[counter].avatar;
+        project[counter].avatar;
     // project Author selection
     projectContainer.children[1].children[1].innerHTML =
         project[counter].name;
     // project text selection
+    console.log(projectContainer.children[1].children[2].innerHTML )
     projectContainer.children[1].children[2].innerHTML = `<i class="fas fa-quote-left"></i>
     ${project[counter].text}
     <i class="fas fa-quote-right"></i>`;
 
     setTimeout(() => {
         // Remove the active animated class
-        projectContainer.classList.remove("project-active-animated");
+    projectContainer.classList.remove('project-active-animated');
     }, 1400);
 };
 
@@ -82,6 +83,7 @@ const inactiveproject = () => {
   };
 
   nextBtn.addEventListener("click", () => {
+      console.log('clicked it')
     if (counter === project.length - 1) {
       counter = 0;
       inactiveproject();
@@ -95,4 +97,7 @@ const inactiveproject = () => {
 
   console.log(nextBtn)
   
-  handleFirstproject();
+  window.addEventListener('load', function () {
+    handleFirstproject();
+  })
+  
