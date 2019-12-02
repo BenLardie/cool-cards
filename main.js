@@ -1,6 +1,7 @@
 const projectContainer = document.querySelector('.project-container');
 const projectGhost = document.querySelector('.project-ghost-container');
 const nextBtn = document.querySelector('#next');
+const lastBtn = document.querySelector('#last');
 const project = [
     {
         name: 'Buddflix',
@@ -42,14 +43,14 @@ const handleFirstproject = () => {
 
 const activeproject = () => {
   projectContainer.classList.add('project-active-animated');
-    // Author avatar selection
+    // Project Picture
     projectContainer.children[1].children[0].src =
         project[counter].avatar;
-    // project Author selection
+    // project Title selection
     projectContainer.children[1].children[1].innerHTML =
         project[counter].name;
     // project text selection
-    console.log(projectContainer.children[1].children[2].innerHTML )
+    console.log(projectContainer.children )
     projectContainer.children[1].children[2].innerHTML = `<i class="fas fa-quote-left"></i>
     ${project[counter].text}
     <i class="fas fa-quote-right"></i>`;
@@ -95,7 +96,26 @@ const inactiveproject = () => {
     }
   });
 
-  console.log(nextBtn)
+  lastBtn.addEventListener("click", () => {
+  if (counter === 0) {
+    counter = project.length - 1;
+    inactiveproject();
+    activeproject();
+  } else {
+    counter--;
+    inactiveproject();
+    activeproject();
+  }
+});
+
+function prev(current, messages) {
+    var idx = messages.indexOf(current);
+    if (idx === 0) {
+      return messages[messages.length - 1];
+    }
+    return messages[idx - 1];
+  }
+
   
   window.addEventListener('load', function () {
     handleFirstproject();

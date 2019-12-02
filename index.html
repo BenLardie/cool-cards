@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <title>Cool Cards</title>
-    
+
 </head>
+
 <body>
     <main>
         <div class="project-container project-active">
@@ -21,9 +23,12 @@
             <div class="project-footer">
                 <div>
                     <a ref='#'><i class="fab fa-github"></i></a>
-                    <a ref='#'><i class="fas fa-external-link-alt"></i></a>              
+                    <a ref='#'><i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div>
+                    <button id="last">
+                        <i class="fa fa-3x fa-chevron-circle-left"></i>
+                    </button>
                     <button id="next">
                         <i class="fa fa-3x fa-chevron-circle-right"></i>
                     </button>
@@ -33,23 +38,27 @@
         <div class="project-ghost-container">
             <div class="project-ghost-header"></div>
             <div class="project-ghost-body">
-            <img alt="Avatar" src="" />
-            <h1></h1>
-            <p></p>
-        </div>
-        <div class="project-ghost-footer">
-            <div>
-            <span><i class="fab fa-github"></i></i></span>
-            <span><i class="fas fa-external-link-alt"></i></span>
+                <img alt="Avatar" src="" />
+                <h1></h1>
+                <p></p>
             </div>
-            <div>
-            <button id="ghost-next">
-                <i class="fa fa-3x fa-chevron-circle-right"></i>
-            </button>
+            <div class="project-ghost-footer">
+                <div>
+                    <span><i class="fab fa-github"></i></i></span>
+                    <span><i class="fas fa-external-link-alt"></i></span>
+                </div>
+                <div>
+                    <button id="ghost-last">
+                        <i class="fa fa-3x fa-chevron-circle-left"></i>
+                    </button>
+                    <button id="ghost-next">
+                        <i class="fa fa-3x fa-chevron-circle-right"></i>
+                    </button>
+                </div>
             </div>
-        </div>
         </div>
     </main>
     <script src="main.js"></script>
 </body>
+
 </html>
