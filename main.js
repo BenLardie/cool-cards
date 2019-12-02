@@ -2,6 +2,9 @@ const projectContainer = document.querySelector('.project-container');
 const projectGhost = document.querySelector('.project-ghost-container');
 const nextBtn = document.querySelector('#next');
 const lastBtn = document.querySelector('#last');
+let animation 
+let inactiveAnimation 
+
 const project = [
     {
         name: 'Buddflix',
@@ -42,49 +45,45 @@ const handleFirstproject = () => {
 };
 
 const activeproject = () => {
-  projectContainer.classList.add('project-active-animated');
+  projectContainer.classList.add(animation);
     // Project Picture
-    projectContainer.children[1].children[0].src =
-        project[counter].avatar;
+  projectContainer.children[1].children[0].src = project[counter].avatar;
     // project Title selection
-    projectContainer.children[1].children[1].innerHTML =
-        project[counter].name;
+  projectContainer.children[1].children[1].innerHTML = project[counter].name;
     // project text selection
-    console.log(projectContainer.children )
     projectContainer.children[1].children[2].innerHTML = `<i class="fas fa-quote-left"></i>
     ${project[counter].text}
     <i class="fas fa-quote-right"></i>`;
 
     setTimeout(() => {
         // Remove the active animated class
-    projectContainer.classList.remove('project-active-animated');
+    projectContainer.classList.remove(animation);
     }, 1400);
 };
 
 const inactiveproject = () => {
-    projectGhost.classList.add("project-inactive-animated");
+    projectGhost.classList.add(inactiveAnimation);
     let newCounter = counter;
     if (newCounter === 0) {
       newCounter = project.length;
     }
     // image selection
-    projectGhost.children[1].children[0].src =
-      project[newCounter - 1].avatar;
+  projectGhost.children[1].children[0].src = project[newCounter - 1].avatar;
     // title selection
-    projectGhost.children[1].children[1].innerHTML =
-      project[newCounter - 1].name;
+  projectGhost.children[1].children[1].innerHTML = project[newCounter - 1].name;
     // text selection
     projectGhost.children[1].children[2].innerHTML = `<i class="fas fa-quote-left"></i>
     ${project[newCounter - 1].text}
     <i class="fas fa-quote-right"></i>`;
     setTimeout(() => {
       // Remove the active animated class
-      projectGhost.classList.remove("project-inactive-animated");
+    projectGhost.classList.remove(inactiveAnimation);
     }, 1400);
   };
 
   nextBtn.addEventListener("click", () => {
-      console.log('clicked it')
+    animation = 'project-active-animated-next'
+    inactiveAnimation = 'project-inactive-animated-next'
     if (counter === project.length - 1) {
       counter = 0;
       inactiveproject();
@@ -97,6 +96,8 @@ const inactiveproject = () => {
   });
 
   lastBtn.addEventListener("click", () => {
+  animation = 'project-active-animated-previous';
+  inactiveAnimation = 'project-inactive-animated-previous';
   if (counter === 0) {
     counter = project.length - 1;
     inactiveproject();
@@ -108,15 +109,7 @@ const inactiveproject = () => {
   }
 });
 
-function prev(current, messages) {
-    var idx = messages.indexOf(current);
-    if (idx === 0) {
-      return messages[messages.length - 1];
-    }
-    return messages[idx - 1];
-  }
 
-  
   window.addEventListener('load', function () {
     handleFirstproject();
   })

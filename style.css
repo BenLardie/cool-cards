@@ -100,12 +100,20 @@ main {
     padding: 1rem;
 }
 
-.project-active-animated {
+.project-active-animated-next {
     animation: moveRight 1.5s ease-in-out;
 }
 
-.project-inactive-animated {
+.project-inactive-animated-next {
     animation: moveLeft 1.5s ease-in-out;
+}
+
+.project-active-animated-previous {
+    animation: moveRightOpposite 1.5s ease-in-out;
+}
+
+.project-inactive-animated-previous {
+    animation: moveLeftOpposite 1.5s ease-in-out;
 }
 
 @keyframes moveRight {
